@@ -20,5 +20,4 @@ RUN echo "mongodb-org-tools hold" | dpkg --set-selections
 RUN touch /lib/systemd/system/mongod.service
 # 8) Create the MongoDB data directory
 RUN mkdir -p /data/db
-# 9) Expose port from container to host
 ENTRYPOINT ["/usr/bin/mongod"]
