@@ -9,6 +9,18 @@ services:
     ports:
       - 27017:27017
     container_name: mongodb
+  postgres:
+    build: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: docker
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    container_name: postgres
+
   # nodejs:
   #   build: nodejs
   #   expose:
