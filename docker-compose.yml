@@ -1,4 +1,7 @@
 version: '2'
+volumes:
+  postgres_data:
+    driver: local
 services:
   mongodb:
     build: mongodb
@@ -15,6 +18,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: docker
       POSTGRES_DB: docker
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     expose:
       - 5432
     ports:
