@@ -20,7 +20,19 @@ services:
     ports:
       - 5432:5432
     container_name: postgres
-
+  neo4j:
+    build: neo4j
+    volumes: 
+      - ./neo4j/shared/data:/data
+    expose:
+      - 7474
+      - 7473
+      - 7687
+    ports:
+      - 7474:7474
+      - 7473:7473
+      - 7687:7687
+    container_name: neo4j
   # nodejs:
   #   build: nodejs
   #   expose:
