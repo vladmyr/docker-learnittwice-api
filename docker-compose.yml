@@ -2,11 +2,16 @@ version: '2'
 volumes:
   postgres_data:
     driver: local
+  mongodb_data:
+    driver: local
+  neo4j_data:
+    driver: local
 services:
   mongodb:
     build: mongodb
     volumes:
       - ./mongodb/shared:/shared
+      - mongodb_data:/data
     expose:
       - 27017
     ports:
@@ -29,7 +34,7 @@ services:
   neo4j:
     build: neo4j
     volumes: 
-      - ./neo4j/shared/data:/data
+      - neo4j_data:/data
     expose:
       - 7474
       - 7473
